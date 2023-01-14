@@ -1,0 +1,61 @@
+<!DOCTYPE html>{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container ">
+        <div class="col-4 mx-auto my-5 bg-primary-subtle rounded py-3">
+            <div class="col-12">
+                <h1>Login</h1>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">User name</label>
+                        <input name="username" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-2 loginbtn">Submit</button>
+                    <p>If you don't have an account <a href="{% url 'register_page' %}">Register here</a></p>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        if (window.location.href === "http://127.0.0.1:8000/afterlogoutpage/") {
+            $.ajax({
+                url: 'login/',
+                type: 'POST',
+                succes: function() {
+                    location.reload();
+                },
+                error: function() {
+                    location.reload();
+                }
+            })
+        };
+        //window.addEventListener('popstate', function() {
+        //          location.reload();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
